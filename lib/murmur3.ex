@@ -1,18 +1,54 @@
 defmodule Murmur3 do
   @moduledoc """
-  Documentation for `Murmur3`.
+  Wrapper for `Murmur3`.
   """
+  alias Murmur3.Wrapper
 
   @doc """
-  Hello world.
+  Generates a 32-bit Murmur3 hash.
 
   ## Examples
 
-      iex> Murmur3.hello()
-      :world
-
+      iex> Murmur3.murmur3_32("hello")
+      613153351
+      iex> Murmur3.murmur3_32("hello", 123)
+      1573043710
   """
-  def hello do
-    :world
+  @spec murmur3_32(binary()) :: integer()
+  @spec murmur3_32(binary(), integer()) :: integer()
+  def murmur3_32(input, seed \\ 0) do
+    Wrapper.gen32(input, seed)
+  end
+
+  @doc """
+  Generates a x64 128-bit Murmur3 hash.
+
+  ## Examples
+
+      iex> Murmur3.murmur3_x64_128("hello")
+      121118445609844952839898260755277781762
+      iex> Murmur3.murmur3_x64_128("hello", 123)
+      19243349499071459060235768594146641163
+  """
+  @spec murmur3_x64_128(binary()) :: integer()
+  @spec murmur3_x64_128(binary(), integer()) :: integer()
+  def murmur3_x64_128(input, seed \\ 0) do
+    input |> Wrapper.gen_x64(seed) |> Integer.parse() |> elem(0)
+  end
+
+  @doc """
+  Generates a x86 128-bit Murmur3 hash.
+
+  ## Examples
+
+      iex> Murmur3.murmur3_x86_128("hello")
+      205839232668418009241864179939306390688
+      iex> Murmur3.murmur3_x86_128("hello", 123)
+      39646137218600763345533167485429249129
+  """
+  @spec murmur3_x86_128(binary()) :: integer()
+  @spec murmur3_x86_128(binary(), integer()) :: integer()
+  def murmur3_x86_128(input, seed \\ 0) do
+    input |> Wrapper.gen_x86(seed) |> Integer.parse() |> elem(0)
   end
 end

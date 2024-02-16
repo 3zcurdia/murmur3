@@ -6,6 +6,7 @@ defmodule Murmur3.MixProject do
       app: :murmur3,
       version: "0.1.0",
       elixir: "~> 1.16",
+      summary: "Wrapper for Murmur3 rust library",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]

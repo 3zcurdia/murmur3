@@ -24,3 +24,8 @@ murmur3-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+/native/murmur3_nif/Cargo.lock
+/native/murmur3_nif/target
+
+/priv/native/*.so
