@@ -1,4 +1,7 @@
 defmodule Murmur3.Wrapper do
+  @moduledoc """
+  Nif Wrapper for Murmur3 rust library
+  """
   use Rustler, otp_app: :murmur3, crate: "murmur3_nif"
 
   @spec gen32(any(), any()) :: {atom(), integer()}

@@ -1,8 +1,8 @@
 # Murmur3
 
-Rust wrapper for the Murmur3 create implementation of the non-cryptographic hash Murmur3.
+Wrapper for [Murmur3](https://crates.io/crates/murmur3) rust library. MurmurHash is a non-cryptographic hash function suitable for general hash-based lookup.
 
-It aims to implement the x86_32bit, x86_128bit and x64_128bit variants.
+It mplements the version 3 with ther three main variants x86_32bit, x86_128bit and x64_128bit.
 
 ## Installation
 
@@ -40,4 +40,3 @@ iex> Murmur3.murmur3_x64_128("hello world", 0)
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details
-

@@ -1,11 +1,17 @@
 defmodule Murmur3 do
   @moduledoc """
-  Wrapper for `Murmur3`.
+  Murmur3 library for Elixir calling a Rust NIF as a wrapper and providing a more idiomatic API.
   """
+
   alias Murmur3.Wrapper
 
   @doc """
   Generates a 32-bit Murmur3 hash.
+
+  ## Parameters
+
+  * `input` - The input to hash
+  * `seed` - The seed to use for the hash
 
   ## Examples
 
@@ -22,6 +28,11 @@ defmodule Murmur3 do
 
   @doc """
   Generates a x64 128-bit Murmur3 hash.
+
+  ## Parameters
+
+  * `input` - The input to hash
+  * `seed` - The seed to use for the hash
 
   ## Examples
 
@@ -40,6 +51,11 @@ defmodule Murmur3 do
 
   @doc """
   Generates a x86 128-bit Murmur3 hash.
+
+  ## Parameters
+
+  * `input` - The input to hash
+  * `seed` - The seed to use for the hash
 
   ## Examples
 
