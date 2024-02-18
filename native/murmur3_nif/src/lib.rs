@@ -1,18 +1,38 @@
 use std::io::Cursor;
+use rustler::{Env, Term, NifResult, Encoder};
 
-#[rustler::nif]
-fn gen32(input: String, seed: u32) -> u32 {
-    murmur3::murmur3_32(&mut Cursor::new(input.into_bytes()), seed).unwrap()
+mod atoms {
+    rustler::atoms! {
+        ok,
+        error,
+    }
 }
 
 #[rustler::nif]
-fn gen_x64(input: String, seed: u32) -> String {
-    murmur3::murmur3_x64_128(&mut Cursor::new(input.into_bytes()), seed).unwrap().to_string()
+fn gen32(env: Env, input: String, seed: u32) -> NifResult<Term<'_>> {
+    let result = murmur3::murmur3_32(&mut Cursor::new(input.into_bytes()), seed);
+    match result {
+        Ok(hash) => Ok((atoms::ok(), hash).encode(env)),
+        Err(err) => Ok((atoms::error(), err.to_string()).encode(env)),
+    }
 }
 
 #[rustler::nif]
-fn gen_x86(input: String, seed: u32) -> String {
-    murmur3::murmur3_x86_128(&mut Cursor::new(input.into_bytes()), seed).unwrap().to_string()
+fn gen_x64(env: Env, input: String, seed: u32) -> NifResult<Term<'_>> {
+    let result = murmur3::murmur3_x64_128(&mut Cursor::new(input.into_bytes()), seed);
+    match result {
+        Ok(hash) => Ok((atoms::ok(), hash.to_string()).encode(env)),
+        Err(err) => Ok((atoms::error(), err.to_string()).encode(env)),
+    }
+}
+
+#[rustler::nif]
+fn gen_x86(env: Env, input: String, seed: u32) -> NifResult<Term<'_>> {
+    let result = murmur3::murmur3_x86_128(&mut Cursor::new(input.into_bytes()), seed);
+    match result {
+        Ok(hash) => Ok((atoms::ok(), hash.to_string()).encode(env)),
+        Err(err) => Ok((atoms::error(), err.to_string()).encode(env)),
+    }
 }
 
 rustler::init!("Elixir.Murmur3.Wrapper", [gen32, gen_x64, gen_x86]);
