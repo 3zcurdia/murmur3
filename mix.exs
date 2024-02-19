@@ -5,8 +5,7 @@ defmodule Murmur3.MixProject do
     [
       app: :murmur3,
       version: "0.1.0",
-      elixir: "~> 1.0",
-      name: "Murmur3",
+      elixir: "~> 1.10.0",
       source_url: "https://github.com/3zcurdia/murmur3",
       description: "Nif Wrapper for Murmur3 rust library",
       license: "MIT",
@@ -28,7 +27,6 @@ defmodule Murmur3.MixProject do
 
   def package do
     [
-      name: "Murmur3",
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/3zcurdia/murmur3"}
     ]
