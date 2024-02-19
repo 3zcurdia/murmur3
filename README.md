@@ -1,4 +1,7 @@
 # Murmur3
+[![Hex docs](http://img.shields.io/badge/hex.pm-docs-green.svg?style=flat)](https://hexdocs.pm/murmur3)
+[![Hex Version](http://img.shields.io/hexpm/v/murmur3.svg?style=flat)](https://hex.pm/packages/murmur3)
+[![License](http://img.shields.io/hexpm/l/murmur3.svg?style=flat)](https://github.com/3zcurdia/murmur3/blob/master/LICENSE)
 
 Wrapper for [Murmur3](https://crates.io/crates/murmur3) rust library. MurmurHash is a non-cryptographic hash function suitable for general hash-based lookup.
 
