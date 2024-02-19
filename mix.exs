@@ -5,11 +5,15 @@ defmodule Murmur3.MixProject do
     [
       app: :murmur3,
       version: "0.1.0",
-      elixir: ">= 1.10.0",
-      summary: "Nif Wrapper for Murmur3 rust library",
+      elixir: "~> 1.0",
+      name: "Murmur3",
+      source_url: "https://github.com/3zcurdia/murmur3",
+      description: "Nif Wrapper for Murmur3 rust library",
       license: "MIT",
       authors: ["Luis Ezcurdia"],
       start_permanent: Mix.env() == :prod,
+      build_embedded: Mix.env() == :prod,
+      package: package(),
       deps: deps(),
       docs: docs(),
     ]
@@ -19,6 +23,14 @@ defmodule Murmur3.MixProject do
   def application do
     [
       extra_applications: [:logger]
+    ]
+  end
+
+  def package do
+    [
+      name: "Murmur3",
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/3zcurdia/murmur3"}
     ]
   end
 
@@ -35,7 +47,7 @@ defmodule Murmur3.MixProject do
   def docs do
     [
       main: "Readme.md",
-      extras: ["README.md"],
+      extras: ["README.md"]
     ]
   end
 end
