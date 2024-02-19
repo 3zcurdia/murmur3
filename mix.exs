@@ -44,7 +44,6 @@ defmodule Murmur3.MixProject do
 
   def docs do
     [
-      main: "Readme.md",
       extras: ["README.md"]
     ]
   end
