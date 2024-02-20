@@ -10,6 +10,5 @@ Benchee.run(
     "Native x64_128" => fn -> Murmur3.murmur3_x64_128(text) end,
   },
   time: 10,
-  memory_time: 2,
-  formatters: [Benchee.Formatters.Console, Benchee.Formatters.HTML]
+  memory_time: 2
 )
