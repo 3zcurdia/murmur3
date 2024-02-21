@@ -45,6 +45,7 @@ Comparison:
 Memory usage statistics:
 
 | Name             | Memory usage                        |
+|------------------|-------------------------------------|
 | Native x64_128   |  752 B                              |
 | Native x86_32    |   24 B - 0.03x memory usage -728 B  |
 | Native x86_128   |  752 B - 1.00x memory usage +0 B    |
