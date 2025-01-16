@@ -2,7 +2,10 @@ defmodule Murmur3.Wrapper do
   @moduledoc """
   Nif Wrapper for Murmur3 rust library
   """
-  use Rustler, otp_app: :murmur3, crate: "murmur3_nif"
+  use Rustler,
+    otp_app: :murmur3,
+    skip_compilation?: true,
+    load_from: {:murmur3, "priv/native/libmurmur3_nif"}
 
   @spec gen32(any(), any()) :: {atom(), integer()}
   def gen32(_input, _seed), do: not_loaded_error()

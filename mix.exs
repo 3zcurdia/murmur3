@@ -14,7 +14,7 @@ defmodule Murmur3.MixProject do
       build_embedded: Mix.env() == :prod,
       package: package(),
       deps: deps(),
-      docs: docs(),
+      docs: docs()
     ]
   end
 
