@@ -1,5 +1,5 @@
+use rustler::{Encoder, Env, NifResult, Term};
 use std::io::Cursor;
-use rustler::{Env, Term, NifResult, Encoder};
 
 mod atoms {
     rustler::atoms! {

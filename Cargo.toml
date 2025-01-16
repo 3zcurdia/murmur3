@@ -1,0 +1,2 @@
+[workspace]
+members = ["native/murmur3_nif"]
