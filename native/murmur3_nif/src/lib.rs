@@ -35,4 +35,4 @@ fn gen_x86(env: Env, input: String, seed: u32) -> NifResult<Term<'_>> {
     }
 }
 
-rustler::init!("Elixir.Murmur3.Wrapper", [gen32, gen_x64, gen_x86]);
+rustler::init!("Elixir.Murmur3.Wrapper");
