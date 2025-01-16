@@ -29,3 +29,6 @@ murmur3-*.tar
 /native/murmur3_nif/target
 
 /priv/native/*.so
+
+/Cargo.lock
+/target

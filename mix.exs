@@ -4,17 +4,17 @@ defmodule Murmur3.MixProject do
   def project do
     [
       app: :murmur3,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: ">= 1.10.0",
       source_url: "https://github.com/3zcurdia/murmur3",
       description: "Nif Wrapper for Murmur3 rust library",
       license: "MIT",
       authors: ["Luis Ezcurdia"],
       start_permanent: Mix.env() == :prod,
-      build_embedded: Mix.env() == :prod,
       package: package(),
       deps: deps(),
-      docs: docs(),
+      aliases: aliases(),
+      docs: docs()
     ]
   end
 
@@ -27,6 +27,8 @@ defmodule Murmur3.MixProject do
 
   def package do
     [
+      files: ["lib", "native", "mix.exs", "README*", "LICENSE*"],
+      maintainers: ["ing.ezcurdia@gmail.com"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/3zcurdia/murmur3"}
     ]
@@ -45,6 +47,15 @@ defmodule Murmur3.MixProject do
   def docs do
     [
       extras: ["README.md"]
+    ]
+  end
+
+  defp aliases do
+    [
+      fmt: [
+        "format",
+        "cmd cargo fmt --manifest-path native/murmur3_nif/Cargo.toml"
+      ]
     ]
   end
 end
