@@ -45,7 +45,7 @@ defmodule Murmur3.MixProject do
   defp deps do
     [
       {:rustler, "~> 0.36.1"},
-      {:ex_doc, "~> 0.37.2", only: :dev}
+      {:ex_doc, "~> 0.38.1", only: :dev}
     ]
   end
 
