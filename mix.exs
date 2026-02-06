@@ -6,7 +6,7 @@ defmodule Murmur3.MixProject do
       app: :murmur3,
       compilers: Mix.compilers(),
       rustler_crates: [
-        expolars: [
+        murmur3_nif: [
           path: "native/murmur3_nif",
           mode: if(Mix.env() == :prod, do: :release, else: :debug)
         ]
