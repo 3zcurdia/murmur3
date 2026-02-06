@@ -13,5 +13,5 @@ defmodule Murmur3.Wrapper do
   @spec gen_x86(any(), any()) :: {atom(), binary()}
   def gen_x86(_input, _seed), do: not_loaded_error()
 
-  defp not_loaded_error(), do: :erlang.nif_error(:nif_not_loaded)
+  defp not_loaded_error, do: :erlang.nif_error(:nif_not_loaded)
 end
