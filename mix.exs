@@ -11,7 +11,7 @@ defmodule Murmur3.MixProject do
           mode: if(Mix.env() == :prod, do: :release, else: :debug)
         ]
       ],
-      version: "0.1.2",
+      version: "0.1.3",
       elixir: ">= 1.10.0",
       source_url: "https://github.com/3zcurdia/murmur3",
       description: "Nif Wrapper for Murmur3 rust library",
