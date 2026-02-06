@@ -145,8 +145,26 @@ end
 4. Run `mix fmt` to format all code
 5. Run `mix docs` to update documentation if needed
 
+### Important Notes
+- **NEVER add comments to code unless explicitly asked by the user**
+- **ALWAYS ask before making git commits**
+- Focus on making functional changes without explanatory comments
+
 ## Common Issues
 
 - If NIF fails to load, ensure Rust code is compiled with `mix compile`
 - For architecture-specific builds, use the CI matrix as reference
 - Always test both Elixir and Rust code paths when making changes
+
+## Git Workflow
+
+### Commit Policy
+- **NEVER commit changes unless explicitly asked by the user**
+- **ALWAYS ask for permission before making any commits**
+- Do not make proactive commits - wait for user to say "commit", "git commit", or similar explicit instruction
+- If you think a commit is needed, ask: "Should I commit these changes?" before proceeding
+
+### Git Commands
+- Use git commands for status checking and information gathering
+- Do not use git commands to make changes without explicit user request
+- When user asks for commit, follow proper git commit workflow with descriptive messages
