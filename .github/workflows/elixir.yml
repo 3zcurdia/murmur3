@@ -18,23 +18,26 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         architecture: [x86_64, arm64]
-        elixir: ["1.18.0", "1.19.0"]
-        otp: ["27.1"]
+        elixir: ["1.18.4", "1.19.4"]
+        otp: ["27.3"]
         exclude:
           # Exclude arm64 for newer Elixir versions to reduce build time
           - architecture: arm64
-            elixir: "1.19.0"
+            elixir: "1.19.4"
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Elixir
-        uses: erlef/setup-beam@v1
+        uses: erlef/setup-beam@v1.24.1
         with:
           elixir-version: ${{ matrix.elixir }} # [Required] Define the Elixir version
           otp-version: ${{ matrix.otp }} # [Required] Define the Erlang/OTP version
+          hexpm-mirrors: |
+            https://builds.hex.pm
+            https://cdn.jsdelivr.net/hex
 
       - name: Restore dependencies cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: deps
           key: ${{ runner.os }}-${{ matrix.architecture }}-elixir${{ matrix.elixir }}-mix-${{ hashFiles('**/mix.lock') }}
