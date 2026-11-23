@@ -33,3 +33,5 @@ murmur3-*.tar
 /Cargo.lock
 /target
 .DS_Store
+
+/checksum-*.exs

@@ -1,18 +1,13 @@
 defmodule Murmur3.MixProject do
   use Mix.Project
 
+  @version "0.2.0"
+
   def project do
     [
       app: :murmur3,
-      compilers: Mix.compilers(),
-      rustler_crates: [
-        murmur3_nif: [
-          path: "native/murmur3_nif",
-          mode: if(Mix.env() == :prod, do: :release, else: :debug)
-        ]
-      ],
-      version: "0.1.3",
-      elixir: ">= 1.10.0",
+      version: @version,
+      elixir: "~> 1.16",
       source_url: "https://github.com/3zcurdia/murmur3",
       description: "Nif Wrapper for Murmur3 rust library",
       license: "MIT",
@@ -34,7 +29,16 @@ defmodule Murmur3.MixProject do
 
   def package do
     [
-      files: ["lib", "native", "mix.exs", "README*", "LICENSE*"],
+      files: [
+        "lib",
+        "native/murmur3_nif/.cargo",
+        "native/murmur3_nif/src",
+        "native/murmur3_nif/Cargo.toml",
+        "checksum-*.exs",
+        "mix.exs",
+        "README*",
+        "LICENSE*"
+      ],
       maintainers: ["ing.ezcurdia@gmail.com"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/3zcurdia/murmur3"}
@@ -44,7 +48,8 @@ defmodule Murmur3.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:rustler, "~> 0.37.1"},
+      {:rustler_precompiled, "~> 0.10.1"},
+      {:rustler, "~> 0.37", optional: true},
       {:styler, "~> 1.10", only: [:dev, :test], runtime: false},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.40.0", only: :dev}

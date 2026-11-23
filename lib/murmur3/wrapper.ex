@@ -2,7 +2,12 @@ defmodule Murmur3.Wrapper do
   @moduledoc """
   Nif Wrapper for Murmur3 rust library
   """
-  use Rustler, otp_app: :murmur3, crate: "murmur3_nif"
+  use RustlerPrecompiled,
+    otp_app: :murmur3,
+    crate: "murmur3_nif",
+    base_url: "https://github.com/3zcurdia/murmur3/releases/download/v#{Mix.Project.config()[:version]}",
+    force_build: System.get_env("MURMUR3_BUILD") in ["1", "true"],
+    version: Mix.Project.config()[:version]
 
   @spec gen32(any(), any()) :: {atom(), integer()}
   def gen32(_input, _seed), do: not_loaded_error()
